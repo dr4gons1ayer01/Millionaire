@@ -14,6 +14,11 @@ protocol GameListViewProtocol: AnyObject {
 
 final class GameListViewController: UIViewController {
     
+    private enum Drawing {
+        static var horizontalInset: CGFloat { 32 }
+        static var cellWidthToHeightRation: CGFloat { 311 / 36 }
+    }
+    
     // MARK: - UI Elements
     private let backgroundView: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: "bgMain"))
@@ -38,10 +43,11 @@ final class GameListViewController: UIViewController {
             QuestionTableViewCell.self,
             forCellReuseIdentifier: QuestionTableViewCell.identifier
         )
-        table.separatorStyle = .none
-        table.rowHeight = 50
-        table.isScrollEnabled = false
         table.backgroundColor = .clear
+        table.separatorStyle = .none
+        table.isScrollEnabled = false
+        table.alwaysBounceVertical = false
+        table.clipsToBounds = false
         return table
     }()
     
@@ -62,7 +68,9 @@ final class GameListViewController: UIViewController {
         scrollView.addSubview(contentView)
         contentView.addSubview(questionsTable)
         
+        questionsTable.rowHeight = calculateCellHeight()
         questionsTable.dataSource = self
+        questionsTable.delegate = self
         
         backgroundView.snp.makeConstraints { $0.edges.equalToSuperview() }
         scrollView.snp.makeConstraints {
@@ -95,6 +103,13 @@ final class GameListViewController: UIViewController {
     @objc private func takeMoneyButtonTapped() {
         print("takeMoneyButtonTapped")
     }
+    
+    // MARK: - Private Methods
+    private func calculateCellHeight() -> CGFloat {
+        let width = UIScreen.main.bounds.width - Drawing.horizontalInset * 2
+        let height = ceil(width / Drawing.cellWidthToHeightRation)
+        return height
+    }
 }
 
 // MARK: - UITableViewDataSource
@@ -120,6 +135,11 @@ extension GameListViewController: UITableViewDataSource {
         cell.configure(with: question)
         return cell
     }
+}
+
+// MARK: - UITableViewDelegate
+extension GameListViewController: UITableViewDelegate {
+    
 }
 
 // MARK: - GameListViewProtocol

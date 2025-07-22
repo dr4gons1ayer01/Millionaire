@@ -12,7 +12,18 @@ final class QuestionTableViewCell: UITableViewCell {
     
     static let identifier = "QuestionTableViewCell"
     
+    private enum Drawing {
+        static var horizontalInset: CGFloat { 32 }
+        static var stackHorizontalInset: CGFloat { 24 }
+    }
+    
     // MARK: - UI Elements
+    private let cellImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        imageView.backgroundColor = .clear
+        return imageView
+    }()
     private let questionStack: UIStackView = {
         let stack = UIStackView()
         stack.axis = .horizontal
@@ -50,8 +61,9 @@ final class QuestionTableViewCell: UITableViewCell {
     // MARK: - Public Methods
     func configure(with question: QuestionRang) {
         questionNumberLabel.text = question.index.description
-        moneyLabel.text = question.summ.description
+        moneyLabel.text = formattedMoneyString(question.sum)
         type = question.type
+        cellImageView.image = UIImage(named: question.imageName)
     }
     
     // MARK: - Setup UI
@@ -59,13 +71,34 @@ final class QuestionTableViewCell: UITableViewCell {
         backgroundColor = .clear
         selectionStyle = .none
         
-        contentView.addSubview(questionStack)
+        contentView.addSubview(cellImageView)
+        cellImageView.addSubview(questionStack)
         questionStack.addArrangedSubview(questionNumberLabel)
         questionStack.addArrangedSubview(moneyLabel)
         
+        cellImageView.snp.makeConstraints { make in
+            make.verticalEdges.equalTo(contentView)
+            make.horizontalEdges.equalTo(contentView).inset(Drawing.horizontalInset)
+        }
+        questionNumberLabel.snp.makeConstraints { make in
+            make.width.equalTo(50)
+        }
         questionStack.snp.makeConstraints { make in
-            make.horizontalEdges.equalTo(contentView)
+            make.horizontalEdges.equalTo(cellImageView).inset(Drawing.stackHorizontalInset)
             make.centerY.equalTo(contentView)
         }
+    }
+    
+    // MARK: - Private Methods
+    private func formattedMoneyString(_ number: Int) -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.groupingSeparator = " "
+        formatter.usesGroupingSeparator = true
+
+        guard let formattedNumber = formatter.string(from: NSNumber(value: number)) else {
+            return number.description
+        }
+        return "\(formattedNumber) руб."
     }
 }
