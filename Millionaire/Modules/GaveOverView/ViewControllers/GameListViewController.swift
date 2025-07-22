@@ -20,6 +20,30 @@ final class GameListViewController: UIViewController {
         imageView.contentMode = .scaleToFill
         return imageView
     }()
+    private let scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.showsVerticalScrollIndicator = false
+        scrollView.alwaysBounceVertical = true
+        scrollView.isDirectionalLockEnabled = true
+        return scrollView
+    }()
+    private let contentView: UIView = {
+        let contentView = UIView()
+        contentView.backgroundColor = .clear
+        return contentView
+    }()
+    private let questionsTable: UITableView = {
+        let table = UITableView()
+        table.register(
+            QuestionTableViewCell.self,
+            forCellReuseIdentifier: QuestionTableViewCell.identifier
+        )
+        table.separatorStyle = .none
+        table.rowHeight = 50
+        table.isScrollEnabled = false
+        table.backgroundColor = .clear
+        return table
+    }()
     
     // MARK: - Dependencies
     var presenter: GameListPresenterProtocol!
@@ -32,11 +56,69 @@ final class GameListViewController: UIViewController {
     
     // MARK: - Setup UI
     private func setupUI() {
-        view.addSubview(backgroundView)
+        setupBarButtonItem()
         
-        backgroundView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+        view.addSubviews(backgroundView, scrollView)
+        scrollView.addSubview(contentView)
+        contentView.addSubview(questionsTable)
+        
+        questionsTable.dataSource = self
+        
+        backgroundView.snp.makeConstraints { $0.edges.equalToSuperview() }
+        scrollView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
         }
+        contentView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+            $0.width.equalTo(scrollView)
+        }
+        questionsTable.snp.makeConstraints {
+            $0.top.bottom.horizontalEdges.equalToSuperview()
+            $0.height.equalTo(questionsTable.rowHeight * CGFloat(presenter.questions.count))
+        }
+    }
+    
+    private func setupBarButtonItem() {
+        if navigationController != nil {
+            let takeMoneyButton = UIBarButtonItem(
+                image: UIImage(named: "takeMoney"),
+                style: .plain,
+                target: self,
+                action: #selector(takeMoneyButtonTapped)
+            )
+            takeMoneyButton.tintColor = .white
+            navigationItem.leftBarButtonItem = takeMoneyButton
+        }
+    }
+    
+    // MARK: - Actions
+    @objc private func takeMoneyButtonTapped() {
+        print("takeMoneyButtonTapped")
+    }
+}
+
+// MARK: - UITableViewDataSource
+extension GameListViewController: UITableViewDataSource {
+    func tableView(
+        _ tableView: UITableView,
+        numberOfRowsInSection section: Int
+    ) -> Int {
+        presenter.questions.count
+    }
+    
+    func tableView(
+        _ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath
+    ) -> UITableViewCell {
+        
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: QuestionTableViewCell.identifier,
+            for: indexPath
+        ) as? QuestionTableViewCell else { return UITableViewCell() }
+        
+        let question = presenter.questions[indexPath.row]
+        cell.configure(with: question)
+        return cell
     }
 }
 
