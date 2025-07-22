@@ -16,6 +16,9 @@ final class GameListViewController: UIViewController {
     
     private enum Drawing {
         static var horizontalInset: CGFloat { 32 }
+        static var logoSize: CGSize { CGSize(width: 85, height: 85) }
+        
+        static var tableYOffset: CGFloat { 15 }
         static var cellWidthToHeightRation: CGFloat { 311 / 36 }
     }
     
@@ -36,6 +39,12 @@ final class GameListViewController: UIViewController {
         let contentView = UIView()
         contentView.backgroundColor = .clear
         return contentView
+    }()
+    private let logoView: UIImageView = {
+        let imageView = UIImageView(image: UIImage(named: "logo"))
+        imageView.contentMode = .scaleAspectFit
+        imageView.backgroundColor = .clear
+        return imageView
     }()
     private let questionsTable: UITableView = {
         let table = UITableView()
@@ -66,7 +75,7 @@ final class GameListViewController: UIViewController {
         
         view.addSubviews(backgroundView, scrollView)
         scrollView.addSubview(contentView)
-        contentView.addSubview(questionsTable)
+        contentView.addSubviews(questionsTable, logoView)
         
         questionsTable.rowHeight = calculateCellHeight()
         questionsTable.dataSource = self
@@ -80,9 +89,15 @@ final class GameListViewController: UIViewController {
             $0.edges.equalToSuperview()
             $0.width.equalTo(scrollView)
         }
-        questionsTable.snp.makeConstraints {
-            $0.top.bottom.horizontalEdges.equalToSuperview()
-            $0.height.equalTo(questionsTable.rowHeight * CGFloat(presenter.questions.count))
+        logoView.snp.makeConstraints { make in
+            make.size.equalTo(Drawing.logoSize)
+            make.centerX.equalToSuperview()
+            make.top.equalTo(contentView)
+        }
+        questionsTable.snp.makeConstraints { make in
+            make.top.equalTo(logoView.snp.bottom).inset(Drawing.tableYOffset)
+            make.bottom.horizontalEdges.equalToSuperview()
+            make.height.equalTo(questionsTable.rowHeight * CGFloat(presenter.questions.count))
         }
     }
     
