@@ -11,6 +11,13 @@ import SnapKit
 enum GameListType {
     case loose(index: Int)
     case win(index: Int)
+    
+    var index: Int {
+        switch self {
+        case .loose(let index): index
+        case .win(let index): index
+        }
+    }
 }
 
 final class GameListViewController: UIViewController {
@@ -100,27 +107,13 @@ final class GameListViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        switch gameType {
-        case .loose(let index):
-            if index == 0 {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                    self.alertView.startAnimation()
-                    UIView.animate(withDuration: 0.3) { [weak self] in
-                        self?.darkView.alpha = 1
-                        self?.navigationItem.leftBarButtonItem?.isEnabled = false
-                    }
+        if gameType.index == -1 {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                self.alertView.startAnimation()
+                UIView.animate(withDuration: 0.3) { [weak self] in
+                    self?.darkView.alpha = 1
+                    self?.navigationItem.leftBarButtonItem?.isEnabled = false
                 }
-                return
-                
-            }
-        case .win(let index):
-            print("win: index \(index)")
-        }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.alertView.startAnimation()
-            UIView.animate(withDuration: 0.3) { [weak self] in
-                self?.darkView.alpha = 1
-                self?.navigationItem.leftBarButtonItem?.isEnabled = false
             }
         }
     }
@@ -211,7 +204,8 @@ extension GameListViewController: UITableViewDataSource {
         ) as? QuestionTableViewCell else { return UITableViewCell() }
         
         let question = presenter.questions[indexPath.row]
-        cell.configure(with: question)
+        let index = (presenter.questions.count - 1) - gameType.index
+        cell.configure(with: question, isCurrent: index == indexPath.row)
         return cell
     }
 }

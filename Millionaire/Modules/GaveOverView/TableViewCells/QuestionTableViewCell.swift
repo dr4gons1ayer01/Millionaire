@@ -18,6 +18,13 @@ final class QuestionTableViewCell: UITableViewCell {
     }
     
     // MARK: - UI Elements
+    private let currentCellImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "current")
+        imageView.contentMode = .scaleAspectFill
+        imageView.backgroundColor = .clear
+        return imageView
+    }()
     private let cellImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -59,11 +66,15 @@ final class QuestionTableViewCell: UITableViewCell {
     }
     
     // MARK: - Public Methods
-    func configure(with question: QuestionRang) {
+    func configure(with question: QuestionRang, isCurrent: Bool) {
         questionNumberLabel.text = question.index.description
         moneyLabel.text = formattedMoneyString(question.sum)
         type = question.type
         cellImageView.image = UIImage(named: question.imageName)
+        
+        if isCurrent {
+            startAnimation()
+        }
     }
     
     // MARK: - Setup UI
@@ -71,8 +82,9 @@ final class QuestionTableViewCell: UITableViewCell {
         backgroundColor = .clear
         selectionStyle = .none
         
+        contentView.addSubview(currentCellImageView)
         contentView.addSubview(cellImageView)
-        cellImageView.addSubview(questionStack)
+        contentView.addSubview(questionStack)
         questionStack.addArrangedSubview(questionNumberLabel)
         questionStack.addArrangedSubview(moneyLabel)
         
@@ -80,11 +92,16 @@ final class QuestionTableViewCell: UITableViewCell {
             make.verticalEdges.equalTo(contentView)
             make.horizontalEdges.equalTo(contentView).inset(Drawing.horizontalInset)
         }
+        currentCellImageView.snp.makeConstraints { make in
+            make.edges.equalTo(cellImageView)
+        }
         questionNumberLabel.snp.makeConstraints { make in
             make.width.equalTo(50)
         }
         questionStack.snp.makeConstraints { make in
-            make.horizontalEdges.equalTo(cellImageView).inset(Drawing.stackHorizontalInset)
+            make.horizontalEdges.equalToSuperview().inset(
+                Drawing.horizontalInset + Drawing.stackHorizontalInset
+            )
             make.centerY.equalTo(contentView)
         }
     }
@@ -100,5 +117,43 @@ final class QuestionTableViewCell: UITableViewCell {
             return number.description
         }
         return "\(formattedNumber) руб."
+    }
+    
+    private func startAnimation() {
+        UIView.animate(
+            withDuration: 0.3,
+            delay: 0.1,
+            options: .curveEaseInOut) {
+                self.cellImageView.alpha = 0
+            } completion: { _ in
+                UIView.animate(
+                    withDuration: 0.3,
+                    delay: 0,
+                    options: .curveEaseInOut) {
+                        self.cellImageView.alpha = 1
+                    } completion: { _ in
+                        UIView.animate(
+                            withDuration: 0.3,
+                            delay: 0,
+                            options: .curveEaseInOut) {
+                                self.cellImageView.alpha = 0
+                            } completion: { _ in
+                                UIView.animate(
+                                    withDuration: 0.3,
+                                    delay: 0,
+                                    options: .curveEaseInOut) {
+                                        self.cellImageView.alpha = 1
+                                    } completion: { _ in
+                                        UIView.animate(
+                                            withDuration: 0.3,
+                                            animations: {
+                                                self.cellImageView.alpha = 0
+                                            }
+                                        )
+                                    }
+                            }
+                    }
+            }
+        
     }
 }
