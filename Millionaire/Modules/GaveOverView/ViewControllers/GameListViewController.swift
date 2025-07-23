@@ -44,6 +44,11 @@ final class GameListViewController: UIViewController {
         let imageView = UIImageView(image: UIImage(named: "logo"))
         imageView.contentMode = .scaleAspectFit
         imageView.backgroundColor = .clear
+        imageView.layer.shadowColor = UIColor.black.cgColor
+        imageView.layer.shadowOpacity = 1
+        imageView.layer.shadowRadius = 20
+        imageView.layer.shadowOffset = .zero
+        imageView.layer.masksToBounds = false
         return imageView
     }()
     private let questionsTable: UITableView = {
