@@ -20,6 +20,8 @@ final class GameListViewController: UIViewController {
         
         static var tableYOffset: CGFloat { 15 }
         static var cellWidthToHeightRation: CGFloat { 311 / 36 }
+        
+        static var alertYOffset: CGFloat { 25 }
     }
     
     // MARK: - UI Elements
@@ -64,6 +66,7 @@ final class GameListViewController: UIViewController {
         table.clipsToBounds = false
         return table
     }()
+    private let alertView = GameOverAlertView()
     
     // MARK: - Dependencies
     var presenter: GameListPresenterProtocol!
@@ -74,14 +77,22 @@ final class GameListViewController: UIViewController {
         setupUI()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.alertView.startAnimation()
+        }
+    }
+    
     // MARK: - Setup UI
     private func setupUI() {
         setupBarButtonItem()
         
         view.addSubviews(backgroundView, scrollView)
         scrollView.addSubview(contentView)
-        contentView.addSubviews(questionsTable, logoView)
+        contentView.addSubviews(questionsTable, logoView, alertView)
         
+        alertView.prepareAnimation()
         questionsTable.rowHeight = calculateCellHeight()
         questionsTable.dataSource = self
         questionsTable.delegate = self
@@ -103,6 +114,11 @@ final class GameListViewController: UIViewController {
             make.top.equalTo(logoView.snp.bottom).inset(Drawing.tableYOffset)
             make.bottom.horizontalEdges.equalToSuperview()
             make.height.equalTo(questionsTable.rowHeight * CGFloat(presenter.questions.count))
+        }
+        alertView.snp.makeConstraints { make in
+            make.centerY.equalToSuperview().offset(-Drawing.alertYOffset)
+            make.horizontalEdges.equalToSuperview().inset(Drawing.horizontalInset)
+            make.height.equalTo(150)
         }
     }
     
