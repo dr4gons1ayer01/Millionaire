@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "logo.png",
+      "filename" : "withdrawal.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "logo 1.png",
+      "filename" : "withdrawal@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "logo 2.png",
+      "filename" : "withdrawal@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
@@ -19,5 +19,8 @@
   "info" : {
     "author" : "xcode",
     "version" : 1
+  },
+  "properties" : {
+    "template-rendering-intent" : "template"
   }
 }
