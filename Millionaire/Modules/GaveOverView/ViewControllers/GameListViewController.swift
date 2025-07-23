@@ -8,8 +8,9 @@
 import UIKit
 import SnapKit
 
-protocol GameListViewProtocol: AnyObject {
-    
+enum GameListType {
+    case loose(index: Int)
+    case win(index: Int)
 }
 
 final class GameListViewController: UIViewController {
@@ -67,9 +68,29 @@ final class GameListViewController: UIViewController {
         return table
     }()
     private let alertView = GameOverAlertView()
+    private let darkView: UIView = {
+        let dview = UIView()
+        dview.backgroundColor = .black.withAlphaComponent(0.5)
+        dview.alpha = 0
+        return dview
+    }()
     
     // MARK: - Dependencies
     var presenter: GameListPresenterProtocol!
+    
+    // MARK: - Private Properties
+    private let gameType: GameListType
+    
+    // MARK: - Initializers
+    init(gameType: GameListType) {
+        self.gameType = gameType
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
@@ -79,8 +100,28 @@ final class GameListViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        switch gameType {
+        case .loose(let index):
+            if index == 0 {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                    self.alertView.startAnimation()
+                    UIView.animate(withDuration: 0.3) { [weak self] in
+                        self?.darkView.alpha = 1
+                        self?.navigationItem.leftBarButtonItem?.isEnabled = false
+                    }
+                }
+                return
+                
+            }
+        case .win(let index):
+            print("win: index \(index)")
+        }
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.alertView.startAnimation()
+            UIView.animate(withDuration: 0.3) { [weak self] in
+                self?.darkView.alpha = 1
+                self?.navigationItem.leftBarButtonItem?.isEnabled = false
+            }
         }
     }
     
@@ -88,14 +129,14 @@ final class GameListViewController: UIViewController {
     private func setupUI() {
         setupBarButtonItem()
         
-        view.addSubviews(backgroundView, scrollView)
+        view.addSubviews(backgroundView, scrollView, darkView)
         scrollView.addSubview(contentView)
-        contentView.addSubviews(questionsTable, logoView, alertView)
+        contentView.addSubviews(questionsTable, logoView)
+        darkView.addSubview(alertView)
         
         alertView.prepareAnimation()
         questionsTable.rowHeight = calculateCellHeight()
         questionsTable.dataSource = self
-        questionsTable.delegate = self
         
         backgroundView.snp.makeConstraints { $0.edges.equalToSuperview() }
         scrollView.snp.makeConstraints {
@@ -115,10 +156,12 @@ final class GameListViewController: UIViewController {
             make.bottom.horizontalEdges.equalToSuperview()
             make.height.equalTo(questionsTable.rowHeight * CGFloat(presenter.questions.count))
         }
+        darkView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
         alertView.snp.makeConstraints { make in
             make.centerY.equalToSuperview().offset(-Drawing.alertYOffset)
             make.horizontalEdges.equalToSuperview().inset(Drawing.horizontalInset)
-            make.height.equalTo(150)
         }
     }
     
@@ -171,14 +214,4 @@ extension GameListViewController: UITableViewDataSource {
         cell.configure(with: question)
         return cell
     }
-}
-
-// MARK: - UITableViewDelegate
-extension GameListViewController: UITableViewDelegate {
-    
-}
-
-// MARK: - GameListViewProtocol
-extension GameListViewController: GameListViewProtocol {
-    
 }

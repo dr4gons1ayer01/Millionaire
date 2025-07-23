@@ -14,13 +14,13 @@ protocol GameListPresenterProtocol {
 final class GameListPresenter: GameListPresenterProtocol {
     
     // MARK: - Dependencies
-    weak var view: GameListViewProtocol?
+    weak var view: GameListViewController?
     
     // MARK: - Public Properties
     var questions: [QuestionRang] = QuestionRang.getQuestions()
     
     // MARK: - Initializers
-    init(view: GameListViewProtocol) {
+    init(view: GameListViewController) {
         self.view = view
     }
 }

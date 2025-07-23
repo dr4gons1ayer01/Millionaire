@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         
         // TODO: - Delete when create MR
-        let gameVC = GameListViewController()
+        let gameVC = GameListViewController(gameType: .loose(index: 0))
         let presenter = GameListPresenter(view: gameVC)
         gameVC.presenter = presenter
         
