@@ -17,24 +17,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bgMain" translatesAutoresizingMaskIntoConstraints="NO" id="GLp-nM-spE">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash" translatesAutoresizingMaskIntoConstraints="NO" id="GLp-nM-spE">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="iG0-GV-MqZ">
-                                <rect key="frame" x="46.666666666666657" y="276" width="300" height="300"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="EcL-JK-PjS"/>
-                                    <constraint firstAttribute="width" constant="300" id="nlA-Nm-XW4"/>
-                                </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="iG0-GV-MqZ" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="0JU-bS-P9r"/>
                             <constraint firstAttribute="bottom" secondItem="GLp-nM-spE" secondAttribute="bottom" id="F5q-AS-U9k"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GLp-nM-spE" secondAttribute="trailing" id="KeR-ko-jyh"/>
-                            <constraint firstItem="iG0-GV-MqZ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="bcl-AF-L6c"/>
                             <constraint firstItem="GLp-nM-spE" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="q1x-kQ-1TH"/>
                             <constraint firstItem="GLp-nM-spE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vwI-EW-Z20"/>
                         </constraints>
@@ -46,8 +37,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bgMain" width="1024" height="1024"/>
-        <image name="logo" width="225" height="225"/>
+        <image name="splash" width="375" height="812"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
