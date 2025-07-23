@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E523F9B2E2F7CD400F90393 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E523F9A2E2F7CD400F90393 /* GameViewController.swift */; };
+		6E523F9D2E3024D300F90393 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E523F9C2E3024D300F90393 /* TimerView.swift */; };
+		6E523F9F2E31340A00F90393 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E523F9E2E31340A00F90393 /* GameView.swift */; };
+		6E523FA12E3136C700F90393 /* AnswerRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E523FA02E3136C700F90393 /* AnswerRow.swift */; };
+		6E523FA32E316AF500F90393 /* TimerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E523FA22E316AF500F90393 /* TimerService.swift */; };
+		6E523FA52E317AF400F90393 /* GameViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E523FA42E317AF400F90393 /* GameViewControllerFactory.swift */; };
 		BE1AE0312E2E7A49002F3170 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1AE0302E2E7A49002F3170 /* AppDelegate.swift */; };
 		BE1AE0332E2E7A49002F3170 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1AE0322E2E7A49002F3170 /* SceneDelegate.swift */; };
 		BE1AE03A2E2E7A4C002F3170 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE1AE0392E2E7A4C002F3170 /* Assets.xcassets */; };
@@ -27,6 +33,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6E523F9A2E2F7CD400F90393 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		6E523F9C2E3024D300F90393 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		6E523F9E2E31340A00F90393 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		6E523FA02E3136C700F90393 /* AnswerRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerRow.swift; sourceTree = "<group>"; };
+		6E523FA22E316AF500F90393 /* TimerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerService.swift; sourceTree = "<group>"; };
+		6E523FA42E317AF400F90393 /* GameViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewControllerFactory.swift; sourceTree = "<group>"; };
 		BE1AE02D2E2E7A49002F3170 /* Millionaire.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Millionaire.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE1AE0302E2E7A49002F3170 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE1AE0322E2E7A49002F3170 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +71,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6E523F992E2F7CC100F90393 /* GameView */ = {
+			isa = PBXGroup;
+			children = (
+				6E523F9A2E2F7CD400F90393 /* GameViewController.swift */,
+				6E523F9C2E3024D300F90393 /* TimerView.swift */,
+				6E523F9E2E31340A00F90393 /* GameView.swift */,
+				6E523FA02E3136C700F90393 /* AnswerRow.swift */,
+				6E523FA22E316AF500F90393 /* TimerService.swift */,
+				6E523FA42E317AF400F90393 /* GameViewControllerFactory.swift */,
+			);
+			path = GameView;
+			sourceTree = "<group>";
+		};
 		BE1AE0242E2E7A49002F3170 = {
 			isa = PBXGroup;
 			children = (
@@ -134,10 +159,10 @@
 		BE1AE05C2E2E7F22002F3170 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				6E523F992E2F7CC100F90393 /* GameView */,
 				BE1AE0692E2E8701002F3170 /* PreviewView */,
 				BE1AE05D2E2E7F2A002F3170 /* HomeView */,
 				BE1AE0642E2E8540002F3170 /* StartGameView */,
-				BE1AE05E2E2E7F62002F3170 /* GameView */,
 				BE1AE06E2E2E8D08002F3170 /* GaveOverView */,
 				BE1AE0612E2E805A002F3170 /* RulesView */,
 			);
@@ -151,13 +176,6 @@
 				BE1AE0682E2E86E0002F3170 /* Presenter */,
 			);
 			path = HomeView;
-			sourceTree = "<group>";
-		};
-		BE1AE05E2E2E7F62002F3170 /* GameView */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = GameView;
 			sourceTree = "<group>";
 		};
 		BE1AE0612E2E805A002F3170 /* RulesView */ = {
@@ -321,13 +339,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E523F9D2E3024D300F90393 /* TimerView.swift in Sources */,
 				BE1AE04E2E2E7E95002F3170 /* SoundManager.swift in Sources */,
 				BE1AE0312E2E7A49002F3170 /* AppDelegate.swift in Sources */,
+				6E523FA52E317AF400F90393 /* GameViewControllerFactory.swift in Sources */,
 				BE1AE0332E2E7A49002F3170 /* SceneDelegate.swift in Sources */,
+				6E523FA32E316AF500F90393 /* TimerService.swift in Sources */,
 				BE1AE0752E2E91CD002F3170 /* Question+Mock.swift in Sources */,
+				6E523F9F2E31340A00F90393 /* GameView.swift in Sources */,
+				6E523F9B2E2F7CD400F90393 /* GameViewController.swift in Sources */,
 				BE1AE0672E2E86A9002F3170 /* HomeView.swift in Sources */,
 				BE1AE0732E2E912D002F3170 /* Question.swift in Sources */,
 				BE1AE0772E2E952F002F3170 /* FontManager.swift in Sources */,
+				6E523FA12E3136C700F90393 /* AnswerRow.swift in Sources */,
 				BE1AE0602E2E7FA0002F3170 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
