@@ -16,7 +16,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(windowScene: windowScene)
         
-        let navVC = UINavigationController(rootViewController: HomeViewController())
+        // STUB
+        let factory = GameViewControllerFactoryImpl()
+        let navVC = UINavigationController(rootViewController: .init())
+        navVC.pushViewController(factory.createGameViewController(), animated: false)
+        
         window?.rootViewController = navVC
         window?.makeKeyAndVisible()
     }
