@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		482C7AC12E2F6F2B00A8E06A /* QuestionRang.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482C7AC02E2F6F2B00A8E06A /* QuestionRang.swift */; };
+		48708AC82E2EB9B8003B95DC /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 48708AC72E2EB9B8003B95DC /* SnapKit */; };
 		BE1AE0312E2E7A49002F3170 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1AE0302E2E7A49002F3170 /* AppDelegate.swift */; };
 		BE1AE0332E2E7A49002F3170 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1AE0322E2E7A49002F3170 /* SceneDelegate.swift */; };
 		BE1AE03A2E2E7A4C002F3170 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE1AE0392E2E7A4C002F3170 /* Assets.xcassets */; };
@@ -27,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		482C7AC02E2F6F2B00A8E06A /* QuestionRang.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionRang.swift; sourceTree = "<group>"; };
 		BE1AE02D2E2E7A49002F3170 /* Millionaire.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Millionaire.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE1AE0302E2E7A49002F3170 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE1AE0322E2E7A49002F3170 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -48,11 +51,17 @@
 		BE1AE0782E2E9576002F3170 /* Jost.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Jost.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		48708AC12E2EB936003B95DC /* GaveOverView */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = GaveOverView; sourceTree = "<group>"; };
+		48708AC22E2EB97F003B95DC /* Helpers */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Helpers; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		BE1AE02A2E2E7A49002F3170 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48708AC82E2EB9B8003B95DC /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,7 +87,7 @@
 		BE1AE02F2E2E7A49002F3170 /* Millionaire */ = {
 			isa = PBXGroup;
 			children = (
-				BE1AE0622E2E8243002F3170 /* Helpers */,
+				48708AC22E2EB97F003B95DC /* Helpers */,
 				BE1AE0712E2E9118002F3170 /* Model */,
 				BE1AE05C2E2E7F22002F3170 /* Modules */,
 				BE1AE0552E2E7EF3002F3170 /* Fonts */,
@@ -134,12 +143,8 @@
 		BE1AE05C2E2E7F22002F3170 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				BE1AE0692E2E8701002F3170 /* PreviewView */,
+				48708AC12E2EB936003B95DC /* GaveOverView */,
 				BE1AE05D2E2E7F2A002F3170 /* HomeView */,
-				BE1AE0642E2E8540002F3170 /* StartGameView */,
-				BE1AE05E2E2E7F62002F3170 /* GameView */,
-				BE1AE06E2E2E8D08002F3170 /* GaveOverView */,
-				BE1AE0612E2E805A002F3170 /* RulesView */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -148,45 +153,8 @@
 			isa = PBXGroup;
 			children = (
 				BE1AE0652E2E868E002F3170 /* View */,
-				BE1AE0682E2E86E0002F3170 /* Presenter */,
 			);
 			path = HomeView;
-			sourceTree = "<group>";
-		};
-		BE1AE05E2E2E7F62002F3170 /* GameView */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = GameView;
-			sourceTree = "<group>";
-		};
-		BE1AE0612E2E805A002F3170 /* RulesView */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = RulesView;
-			sourceTree = "<group>";
-		};
-		BE1AE0622E2E8243002F3170 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				BE1AE0632E2E8251002F3170 /* Extensions */,
-			);
-			path = Helpers;
-			sourceTree = "<group>";
-		};
-		BE1AE0632E2E8251002F3170 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		BE1AE0642E2E8540002F3170 /* StartGameView */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = StartGameView;
 			sourceTree = "<group>";
 		};
 		BE1AE0652E2E868E002F3170 /* View */ = {
@@ -198,47 +166,11 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		BE1AE0682E2E86E0002F3170 /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Presenter;
-			sourceTree = "<group>";
-		};
-		BE1AE0692E2E8701002F3170 /* PreviewView */ = {
-			isa = PBXGroup;
-			children = (
-				BE1AE06B2E2E8715002F3170 /* View */,
-				BE1AE06A2E2E870D002F3170 /* Presenter */,
-			);
-			path = PreviewView;
-			sourceTree = "<group>";
-		};
-		BE1AE06A2E2E870D002F3170 /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Presenter;
-			sourceTree = "<group>";
-		};
-		BE1AE06B2E2E8715002F3170 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		BE1AE06E2E2E8D08002F3170 /* GaveOverView */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = GaveOverView;
-			sourceTree = "<group>";
-		};
 		BE1AE0712E2E9118002F3170 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				BE1AE0722E2E912D002F3170 /* Question.swift */,
+				482C7AC02E2F6F2B00A8E06A /* QuestionRang.swift */,
 				BE1AE0742E2E91CD002F3170 /* Question+Mock.swift */,
 			);
 			path = Model;
@@ -258,6 +190,10 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				48708AC12E2EB936003B95DC /* GaveOverView */,
+				48708AC22E2EB97F003B95DC /* Helpers */,
 			);
 			name = Millionaire;
 			productName = Millionaire;
@@ -288,6 +224,9 @@
 				Base,
 			);
 			mainGroup = BE1AE0242E2E7A49002F3170;
+			packageReferences = (
+				48708AC62E2EB9B8003B95DC /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = BE1AE02E2E2E7A49002F3170 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -328,6 +267,7 @@
 				BE1AE0672E2E86A9002F3170 /* HomeView.swift in Sources */,
 				BE1AE0732E2E912D002F3170 /* Question.swift in Sources */,
 				BE1AE0772E2E952F002F3170 /* FontManager.swift in Sources */,
+				482C7AC12E2F6F2B00A8E06A /* QuestionRang.swift in Sources */,
 				BE1AE0602E2E7FA0002F3170 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -543,6 +483,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		48708AC62E2EB9B8003B95DC /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		48708AC72E2EB9B8003B95DC /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 48708AC62E2EB9B8003B95DC /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BE1AE0252E2E7A49002F3170 /* Project object */;
 }
