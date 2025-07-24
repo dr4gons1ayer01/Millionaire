@@ -18,11 +18,12 @@ class HomeViewController: UIViewController {
 //        showGameOverViewController(level: 8, score: 15000)
     }
     
-    func showGameOverViewController(level: Int, score: Int) {
-        let presenter = GameOverPresenter(level: level, score: score, navigationController: self.navigationController)
-        let gameOverVC = GameOverViewController(presenter: presenter)
-        navigationController?.pushViewController(gameOverVC, animated: true)
-    }
+    //TODO: fix
+//    func showGameOverViewController(level: Int, score: Int) {
+//        let presenter = GameOverPresenter(level: level, score: score, navigationController: self.navigationController)
+//        let gameOverVC = GameOverViewController(presenter: presenter)
+//        navigationController?.pushViewController(gameOverVC, animated: true)
+//    }
 }
 
 // MARK: - SetUp UI
