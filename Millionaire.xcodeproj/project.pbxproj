@@ -26,6 +26,17 @@
 		BE1AE0792E2E9576002F3170 /* Jost.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BE1AE0782E2E9576002F3170 /* Jost.ttf */; };
 		BE8F87242E324BEF000045E8 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = BE8F87232E324BEF000045E8 /* SnapKit */; };
 		BE8F87262E324BEF000045E8 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = BE8F87252E324BEF000045E8 /* SnapKit-Dynamic */; };
+		BE8F87282E326FAE000045E8 /* UIView +.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8F87272E326FAE000045E8 /* UIView +.swift */; };
+		BE8F872A2E326FC9000045E8 /* QuestionRang.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8F87292E326FC9000045E8 /* QuestionRang.swift */; };
+		BE8F872D2E326FFD000045E8 /* GameListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8F872C2E326FFD000045E8 /* GameListPresenter.swift */; };
+		BE8F87302E32700E000045E8 /* GameOverAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8F872F2E32700E000045E8 /* GameOverAlertView.swift */; };
+		BE8F87332E327016000045E8 /* QuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8F87322E327016000045E8 /* QuestionTableViewCell.swift */; };
+		BE8F87362E32701E000045E8 /* GameListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8F87352E32701E000045E8 /* GameListViewController.swift */; };
+		BE8F87382E327053000045E8 /* RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8F87372E327053000045E8 /* RulesViewController.swift */; };
+		BE8F873A2E32705A000045E8 /* RulesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8F87392E32705A000045E8 /* RulesRouter.swift */; };
+		BE8F873C2E327060000045E8 /* RulesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8F873B2E327060000045E8 /* RulesPresenter.swift */; };
+		BE8F873E2E327068000045E8 /* RulesModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8F873D2E327068000045E8 /* RulesModuleBuilder.swift */; };
+		BE8F87402E32706F000045E8 /* RulesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8F873F2E32706F000045E8 /* RulesModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +59,17 @@
 		BE1AE0742E2E91CD002F3170 /* Question+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Question+Mock.swift"; sourceTree = "<group>"; };
 		BE1AE0762E2E952F002F3170 /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
 		BE1AE0782E2E9576002F3170 /* Jost.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Jost.ttf; sourceTree = "<group>"; };
+		BE8F87272E326FAE000045E8 /* UIView +.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView +.swift"; sourceTree = "<group>"; };
+		BE8F87292E326FC9000045E8 /* QuestionRang.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionRang.swift; sourceTree = "<group>"; };
+		BE8F872C2E326FFD000045E8 /* GameListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameListPresenter.swift; sourceTree = "<group>"; };
+		BE8F872F2E32700E000045E8 /* GameOverAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverAlertView.swift; sourceTree = "<group>"; };
+		BE8F87322E327016000045E8 /* QuestionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionTableViewCell.swift; sourceTree = "<group>"; };
+		BE8F87352E32701E000045E8 /* GameListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameListViewController.swift; sourceTree = "<group>"; };
+		BE8F87372E327053000045E8 /* RulesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulesViewController.swift; sourceTree = "<group>"; };
+		BE8F87392E32705A000045E8 /* RulesRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulesRouter.swift; sourceTree = "<group>"; };
+		BE8F873B2E327060000045E8 /* RulesPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulesPresenter.swift; sourceTree = "<group>"; };
+		BE8F873D2E327068000045E8 /* RulesModuleBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulesModuleBuilder.swift; sourceTree = "<group>"; };
+		BE8F873F2E32706F000045E8 /* RulesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulesModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +189,11 @@
 		BE1AE0612E2E805A002F3170 /* RulesView */ = {
 			isa = PBXGroup;
 			children = (
+				BE8F873F2E32706F000045E8 /* RulesModel.swift */,
+				BE8F873D2E327068000045E8 /* RulesModuleBuilder.swift */,
+				BE8F873B2E327060000045E8 /* RulesPresenter.swift */,
+				BE8F87392E32705A000045E8 /* RulesRouter.swift */,
+				BE8F87372E327053000045E8 /* RulesViewController.swift */,
 			);
 			path = RulesView;
 			sourceTree = "<group>";
@@ -182,6 +209,7 @@
 		BE1AE0632E2E8251002F3170 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				BE8F87272E326FAE000045E8 /* UIView +.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -235,6 +263,10 @@
 		BE1AE06E2E2E8D08002F3170 /* GaveOverView */ = {
 			isa = PBXGroup;
 			children = (
+				BE8F872B2E326FFD000045E8 /* Presenters */,
+				BE8F872E2E32700E000045E8 /* Subviews */,
+				BE8F87312E327016000045E8 /* TableViewCells */,
+				BE8F87342E32701E000045E8 /* ViewControllers */,
 			);
 			path = GaveOverView;
 			sourceTree = "<group>";
@@ -244,8 +276,41 @@
 			children = (
 				BE1AE0722E2E912D002F3170 /* Question.swift */,
 				BE1AE0742E2E91CD002F3170 /* Question+Mock.swift */,
+				BE8F87292E326FC9000045E8 /* QuestionRang.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		BE8F872B2E326FFD000045E8 /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				BE8F872C2E326FFD000045E8 /* GameListPresenter.swift */,
+			);
+			path = Presenters;
+			sourceTree = "<group>";
+		};
+		BE8F872E2E32700E000045E8 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				BE8F872F2E32700E000045E8 /* GameOverAlertView.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
+		BE8F87312E327016000045E8 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				BE8F87322E327016000045E8 /* QuestionTableViewCell.swift */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		BE8F87342E32701E000045E8 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				BE8F87352E32701E000045E8 /* GameListViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -333,13 +398,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE1AE04E2E2E7E95002F3170 /* SoundManager.swift in Sources */,
+				BE8F87402E32706F000045E8 /* RulesModel.swift in Sources */,
+				BE8F87332E327016000045E8 /* QuestionTableViewCell.swift in Sources */,
+				BE8F872A2E326FC9000045E8 /* QuestionRang.swift in Sources */,
 				BE1AE0312E2E7A49002F3170 /* AppDelegate.swift in Sources */,
 				BE1AE0332E2E7A49002F3170 /* SceneDelegate.swift in Sources */,
+				BE8F873C2E327060000045E8 /* RulesPresenter.swift in Sources */,
+				BE8F872D2E326FFD000045E8 /* GameListPresenter.swift in Sources */,
 				BE1AE0752E2E91CD002F3170 /* Question+Mock.swift in Sources */,
 				BE1AE0672E2E86A9002F3170 /* HomeView.swift in Sources */,
+				BE8F873A2E32705A000045E8 /* RulesRouter.swift in Sources */,
 				BE1AE0732E2E912D002F3170 /* Question.swift in Sources */,
 				BE1AE0772E2E952F002F3170 /* FontManager.swift in Sources */,
+				BE8F87382E327053000045E8 /* RulesViewController.swift in Sources */,
+				BE8F87282E326FAE000045E8 /* UIView +.swift in Sources */,
 				BE1AE0602E2E7FA0002F3170 /* HomeViewController.swift in Sources */,
+				BE8F87362E32701E000045E8 /* GameListViewController.swift in Sources */,
+				BE8F87302E32700E000045E8 /* GameOverAlertView.swift in Sources */,
+				BE8F873E2E327068000045E8 /* RulesModuleBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
