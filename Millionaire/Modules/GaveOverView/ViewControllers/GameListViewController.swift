@@ -174,6 +174,11 @@ final class GameListViewController: UIViewController {
     // MARK: - Actions
     @objc private func takeMoneyButtonTapped() {
         print("takeMoneyButtonTapped")
+        let vc = RulesViewController()
+        let router = RulesRouter(viewController: vc)
+        let presenter = RulesPresenter(view: vc, router: router)
+        vc.presenter = presenter
+        present(vc, animated: true)
     }
     
     // MARK: - Private Methods

@@ -52,6 +52,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		482625042E320C4E00320AAE /* RulesView */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = RulesView; sourceTree = "<group>"; };
 		48708AC12E2EB936003B95DC /* GaveOverView */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = GaveOverView; sourceTree = "<group>"; };
 		48708AC22E2EB97F003B95DC /* Helpers */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Helpers; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -145,6 +146,7 @@
 			children = (
 				48708AC12E2EB936003B95DC /* GaveOverView */,
 				BE1AE05D2E2E7F2A002F3170 /* HomeView */,
+				482625042E320C4E00320AAE /* RulesView */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -192,6 +194,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				482625042E320C4E00320AAE /* RulesView */,
 				48708AC12E2EB936003B95DC /* GaveOverView */,
 				48708AC22E2EB97F003B95DC /* Helpers */,
 			);
