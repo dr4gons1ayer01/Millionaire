@@ -17,9 +17,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         
         // STUB
+        
         let factory = GameViewControllerFactoryImpl()
         let navVC = UINavigationController(rootViewController: .init())
-        navVC.pushViewController(factory.createGameViewController(), animated: false)
+        navVC.pushViewController(factory.createGameViewController(questionNum: 1, sum: 0), animated: false)
         
         window?.rootViewController = navVC
         window?.makeKeyAndVisible()

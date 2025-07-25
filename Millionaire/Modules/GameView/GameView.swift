@@ -9,20 +9,14 @@ import UIKit
 
 // what view sends
 protocol GameViewProtocol: AnyObject {
-    func didSelectAnswer(index: Int, row: AnswerRow)
-    func didSelectAssist(index: Int)
+    func didSelectAnswer(index: Int, answerRows: [AnswerRow])
+    func didSelectAssist(assistType: AssistActionType, button: UIButton, answerRows: [AnswerRow])
 }
 
-// navbar stub
-protocol GameViewNavBarDelegate {
-    func didPressBackBarItem()
-    func didPressRightBarItem()
-}
 
 final class GameView: UIView {
     
     var delegate: GameViewProtocol?
-
     
     // MARK: Views
     let timerView: TimerView = {
@@ -103,7 +97,19 @@ final class GameView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func makeLayout() {
+    // disabling helpers after answering
+    // presenter candidate
+    func disableHelpers() {
+        let helpers = helpersStack.arrangedSubviews as! [UIButton]
+        helpers.forEach({ $0.isUserInteractionEnabled = false; $0.alpha = 0.5})
+        
+    }
+   
+}
+
+private extension GameView {
+    
+     func makeLayout() {
         [timerView, questionText, quesitonColumns, helpersStack].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
             addSubview($0)
@@ -132,8 +138,9 @@ final class GameView: UIView {
             
         ])
     }
+
     
-    private func setupBg() {
+     func setupBg() {
         let v = UIImageView(image: .mainBgAlt)
         addSubview(v)
         v.translatesAutoresizingMaskIntoConstraints = false
@@ -147,33 +154,32 @@ final class GameView: UIView {
     }
     
     // MARK: Handlers
-    @objc private func didChooseAnswer(sender: UITapGestureRecognizer) {
+    @objc  func didChooseAnswer(sender: UITapGestureRecognizer) {
         let sv = sender.view as! UIStackView
         let touchLoc = sender.location(in: sv)
-        let index = sv.arrangedSubviews.firstIndex(where: {
-            $0.frame.contains(touchLoc)
-        })
         
-        let view = sv.arrangedSubviews[index!] as! AnswerRow
+        let index = sv.arrangedSubviews.firstIndex(where: {$0.frame.contains(touchLoc)})
+        let views = sv.arrangedSubviews as! [AnswerRow]
         
-        delegate?.didSelectAnswer(index: index!, row: view)
+        
+        delegate?.didSelectAnswer(index: index!, answerRows: views)
     }
     
-    @objc private func didChooseAssist(sender: UIButton) {
+    @objc  func didChooseAssist(sender: UIButton) {
         guard let img = sender.currentImage else {return}
+        
+        let views = quesitonColumns.arrangedSubviews as! [AnswerRow]
+        
         switch img {
         case UIImage._5050:
-            delegate?.didSelectAssist(index: 0)
+            delegate?.didSelectAssist(assistType: AssistActionType.fif2fif, button: sender, answerRows: views)
         case UIImage.audience:
-            delegate?.didSelectAssist(index: 1)
+            delegate?.didSelectAssist(assistType: AssistActionType.audience, button: sender, answerRows: views)
         case UIImage.call:
-            delegate?.didSelectAssist(index: 2)
+            delegate?.didSelectAssist(assistType: AssistActionType.call, button: sender, answerRows: views)
         default:
             fatalError("image does not exist")
         }
-
-        
-        
     }
 }
 

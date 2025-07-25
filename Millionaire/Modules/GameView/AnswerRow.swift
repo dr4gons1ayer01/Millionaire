@@ -10,7 +10,7 @@ import UIKit
 final class AnswerRow: UIImageView {
     
     enum AnswerRowType {
-        case regular, rightGreen, wrong, correctAnswer
+        case regular, rightGreen, wrong, correctAnswer, highlighted
     }
     
     var isDisabled = false {
@@ -83,7 +83,21 @@ final class AnswerRow: UIImageView {
             image = .redAnswer
         case .correctAnswer:
             image = .yellowAnswer
+        case .highlighted:
+            image = .yellowAnswer
         }
+    }
+}
+extension  UIView {
+    func blink(duration: TimeInterval = 0.5, repeatCount: Float = 1) {
+        let animation = CABasicAnimation(keyPath: "opacity")
+        animation.fromValue = 1
+        animation.toValue = 0
+        animation.duration = duration
+        animation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+        animation.autoreverses = true
+        animation.repeatCount = repeatCount
+        layer.add(animation, forKey: "blink")
     }
 }
 
