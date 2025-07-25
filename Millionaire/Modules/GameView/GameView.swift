@@ -51,10 +51,10 @@ final class GameView: UIView {
         v.axis = .vertical
         v.distribution = .fillEqually
         v.spacing = 16
-        v.addArrangedSubview(AnswerRow(index: "A:", text: "question 1"))
-        v.addArrangedSubview(AnswerRow(index: "B:", text: "question 2"))
-        v.addArrangedSubview(AnswerRow(index: "C:", text: "question 3"))
-        v.addArrangedSubview(AnswerRow(index: "D:", text: "question 4"))
+//        v.addArrangedSubview(AnswerRow(index: "A:", text: "question 1"))
+//        v.addArrangedSubview(AnswerRow(index: "B:", text: "question 2"))
+//        v.addArrangedSubview(AnswerRow(index: "C:", text: "question 3"))
+//        v.addArrangedSubview(AnswerRow(index: "D:", text: "question 4"))
         
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(didChooseAnswer))
@@ -86,8 +86,6 @@ final class GameView: UIView {
         return v
     }()
     
-    
-    
     convenience init(delegate: GameViewProtocol) {
         self.init(frame: .zero)
         self.delegate = delegate
@@ -103,6 +101,19 @@ final class GameView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Public Methods
+    func setupQuestion(by currentLevel: Int) {
+        let questions = Question.mockQuestions()
+        guard questions.indices.contains(currentLevel) else { return }
+        let model = questions[currentLevel]
+        questionText.text = model.questionText
+        
+        zip(model.answers, ["A:","B:","C:","D:"]).forEach { (answer, letter) in
+            quesitonColumns.addArrangedSubview(AnswerRow(index: letter, text: answer.text))
+        }
+    }
+    
+    // MARK: - Private Methods
     private func makeLayout() {
         [timerView, questionText, quesitonColumns, helpersStack].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false

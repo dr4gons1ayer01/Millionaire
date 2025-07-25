@@ -58,6 +58,8 @@ final class GameViewController: UIViewController, GameViewProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        gameView.setupQuestion(by: currentlevel)
+        
         SoundManager.shared.playSound(.clock)
         timerService = TimerService { [weak self] tick in
             

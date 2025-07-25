@@ -16,10 +16,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(windowScene: windowScene)
         
+        
         // STUB
+        let user = User(gameState: .isOn)
+        
         let factory = GameViewControllerFactoryImpl()
         let navVC = UINavigationController(rootViewController: .init())
-        navVC.pushViewController(factory.createGameViewController(), animated: false)
+        navVC.pushViewController(
+            factory.createGameViewController(question: user.currentLevel, sum: user.getSum()),
+            animated: false
+        )
         
         window?.rootViewController = navVC
         window?.makeKeyAndVisible()

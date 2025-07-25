@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		489CA4922E336AF80040538B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489CA4912E336AF80040538B /* User.swift */; };
 		6E523F9B2E2F7CD400F90393 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E523F9A2E2F7CD400F90393 /* GameViewController.swift */; };
 		6E523F9D2E3024D300F90393 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E523F9C2E3024D300F90393 /* TimerView.swift */; };
 		6E523F9F2E31340A00F90393 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E523F9E2E31340A00F90393 /* GameView.swift */; };
@@ -44,6 +45,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		489CA4912E336AF80040538B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		6E523F9A2E2F7CD400F90393 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		6E523F9C2E3024D300F90393 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		6E523F9E2E31340A00F90393 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 			children = (
 				BE1AE0722E2E912D002F3170 /* Question.swift */,
 				BE1AE0742E2E91CD002F3170 /* Question+Mock.swift */,
+				489CA4912E336AF80040538B /* User.swift */,
 				BE8F87292E326FC9000045E8 /* QuestionRang.swift */,
 			);
 			path = Model;
@@ -409,6 +412,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				489CA4922E336AF80040538B /* User.swift in Sources */,
 				6E523F9D2E3024D300F90393 /* TimerView.swift in Sources */,
 				BE1AE04E2E2E7E95002F3170 /* SoundManager.swift in Sources */,
 				BE8F87472E328054000045E8 /* RulesPresenter.swift in Sources */,
