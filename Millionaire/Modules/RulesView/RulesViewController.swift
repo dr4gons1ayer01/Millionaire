@@ -9,7 +9,7 @@ import UIKit
 import Foundation
 
 protocol RulesViewProtocol: AnyObject {
-    func updateUI(withTitle title: String, rules: String, buttonTitle: String)
+    func updateUI(withTitle title: String, rules: NSMutableAttributedString, buttonTitle: String)
 }
 
 final class RulesViewController: UIViewController {
@@ -133,9 +133,9 @@ final class RulesViewController: UIViewController {
 
 // MARK: - RulesViewProtocol
 extension RulesViewController: RulesViewProtocol {
-    func updateUI(withTitle title: String, rules: String, buttonTitle: String) {
+    func updateUI(withTitle title: String, rules: NSMutableAttributedString, buttonTitle: String) {
         titleLabel.text = title
-        rulesTextLabel.text = rules
+        rulesTextLabel.attributedText = rules
         closeButton.setTitle(buttonTitle, for: .normal)
     }
 }

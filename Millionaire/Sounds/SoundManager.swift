@@ -10,7 +10,7 @@ import AVFoundation
 enum SoundType: String {
     case accepted = "otvetPrinyat"
     case clock = "zvukChasov"
-    case correct = "otvetVernyi"
+    case correct = "otvetVernyiy"
     case alarm = "budilnik"
     case betterQuality = "boleeKachestvennyi"
     case wrong = "zvukNepravilnogo"

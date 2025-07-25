@@ -9,12 +9,11 @@ import UIKit
 import Foundation
 
 enum RulesModuleBuilder {
-    //TODO: fix
-//    static func build() -> RulesViewController {
-//        let view = RulesViewController()
-//        let router = RulesRouter(viewController: view)
-//        let presenter = RulesPresenter(view: view, router: router)
-//        view.presenter = presenter
-//        return view
-//    }
+    static func build() -> RulesViewController {
+        let view = RulesViewController()
+        let router = RulesRouter(viewController: view)
+        let presenter = RulesPresenter(view: view, router: router)
+        view.presenter = presenter
+        return view
+    }
 }

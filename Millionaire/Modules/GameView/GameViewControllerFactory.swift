@@ -14,7 +14,7 @@ protocol GameViewControllerFactoryProtocol {
 
 
 final class GameViewControllerFactoryImpl {
-    func createGameViewController(question: String = "who let dogs out", sum: Int = 999) -> GameViewController {
+    func createGameViewController(question: Int = 0, sum: Int = 999) -> GameViewController {
         let vc = GameViewController()
         
         UINavigationBar.appearance().tintColor = .white
@@ -23,7 +23,7 @@ final class GameViewControllerFactoryImpl {
         sv.axis = .vertical
         sv.alignment = .center
         let questionlbl = UILabel()
-        questionlbl.text = question
+        questionlbl.text = "QUESTION #\(question + 1)"
         questionlbl.alpha = 0.5
         questionlbl.font = .init(name: FontType.regular.rawValue, size: 18)
         
@@ -39,6 +39,7 @@ final class GameViewControllerFactoryImpl {
         vc.navigationItem.leftBarButtonItem = .init(image: .arrowBack)
         
         vc.navigationItem.rightBarButtonItem = .init(image: .prizeLadder)
+        vc.currentlevel = question
         
         return vc
     }

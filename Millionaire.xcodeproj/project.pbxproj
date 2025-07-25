@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		489CA4922E336AF80040538B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489CA4912E336AF80040538B /* User.swift */; };
 		6E523F9B2E2F7CD400F90393 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E523F9A2E2F7CD400F90393 /* GameViewController.swift */; };
 		6E523F9D2E3024D300F90393 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E523F9C2E3024D300F90393 /* TimerView.swift */; };
 		6E523F9F2E31340A00F90393 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E523F9E2E31340A00F90393 /* GameView.swift */; };
@@ -31,7 +32,6 @@
 		BE1AE0772E2E952F002F3170 /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1AE0762E2E952F002F3170 /* FontManager.swift */; };
 		BE1AE0792E2E9576002F3170 /* Jost.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BE1AE0782E2E9576002F3170 /* Jost.ttf */; };
 		BE8F87242E324BEF000045E8 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = BE8F87232E324BEF000045E8 /* SnapKit */; };
-		BE8F87262E324BEF000045E8 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = BE8F87252E324BEF000045E8 /* SnapKit-Dynamic */; };
 		BE8F872A2E326FC9000045E8 /* QuestionRang.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8F87292E326FC9000045E8 /* QuestionRang.swift */; };
 		BE8F87302E32700E000045E8 /* GameOverAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8F872F2E32700E000045E8 /* GameOverAlertView.swift */; };
 		BE8F87332E327016000045E8 /* QuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8F87322E327016000045E8 /* QuestionTableViewCell.swift */; };
@@ -39,13 +39,13 @@
 		BE8F873A2E32705A000045E8 /* RulesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8F87392E32705A000045E8 /* RulesRouter.swift */; };
 		BE8F873E2E327068000045E8 /* RulesModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8F873D2E327068000045E8 /* RulesModuleBuilder.swift */; };
 		BE8F87402E32706F000045E8 /* RulesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8F873F2E32706F000045E8 /* RulesModel.swift */; };
-		BE8F87452E328014000045E8 /* UIView +.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8F87272E326FAE000045E8 /* UIView +.swift */; };
 		BE8F87462E32802D000045E8 /* GameListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8F872C2E326FFD000045E8 /* GameListPresenter.swift */; };
 		BE8F87472E328054000045E8 /* RulesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8F873B2E327060000045E8 /* RulesPresenter.swift */; };
 		BE8F87482E328058000045E8 /* RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8F87372E327053000045E8 /* RulesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		489CA4912E336AF80040538B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		6E523F9A2E2F7CD400F90393 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		6E523F9C2E3024D300F90393 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		6E523F9E2E31340A00F90393 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
@@ -84,19 +84,35 @@
 		BE8F873F2E32706F000045E8 /* RulesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulesModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		482625042E320C4E00320AAE /* RulesView */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = RulesView; sourceTree = "<group>"; };
+		4851C9DC2E33BA4E00469846 /* Services */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Services; sourceTree = "<group>"; };
+		48708AC12E2EB936003B95DC /* GaveOverView */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = GaveOverView; sourceTree = "<group>"; };
+		48708AC22E2EB97F003B95DC /* Helpers */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Helpers; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		BE1AE02A2E2E7A49002F3170 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				BE8F87242E324BEF000045E8 /* SnapKit in Frameworks */,
-				BE8F87262E324BEF000045E8 /* SnapKit-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		482C1BBF2E3361B5000C4179 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				482625042E320C4E00320AAE /* RulesView */,
+				48708AC12E2EB936003B95DC /* GaveOverView */,
+				BE8F87272E326FAE000045E8 /* UIView +.swift */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		6E523F992E2F7CC100F90393 /* GameView */ = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +131,7 @@
 			children = (
 				BE1AE02F2E2E7A49002F3170 /* Millionaire */,
 				BE1AE02E2E2E7A49002F3170 /* Products */,
+				482C1BBF2E3361B5000C4179 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -129,13 +146,14 @@
 		BE1AE02F2E2E7A49002F3170 /* Millionaire */ = {
 			isa = PBXGroup;
 			children = (
-				BE1AE0622E2E8243002F3170 /* Helpers */,
+				48708AC22E2EB97F003B95DC /* Helpers */,
 				BE1AE0712E2E9118002F3170 /* Model */,
 				BE1AE05C2E2E7F22002F3170 /* Modules */,
 				BE1AE0552E2E7EF3002F3170 /* Fonts */,
 				BE1AE0452E2E7E95002F3170 /* Sounds */,
 				BE1AE0542E2E7EB0002F3170 /* Application */,
 				BE1AE0442E2E7E67002F3170 /* Resources */,
+				4851C9DC2E33BA4E00469846 /* Services */,
 			);
 			path = Millionaire;
 			sourceTree = "<group>";
@@ -199,7 +217,6 @@
 			isa = PBXGroup;
 			children = (
 				BE1AE0652E2E868E002F3170 /* View */,
-				BE1AE0682E2E86E0002F3170 /* Presenter */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -216,22 +233,6 @@
 			path = RulesView;
 			sourceTree = "<group>";
 		};
-		BE1AE0622E2E8243002F3170 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				BE1AE0632E2E8251002F3170 /* Extensions */,
-			);
-			path = Helpers;
-			sourceTree = "<group>";
-		};
-		BE1AE0632E2E8251002F3170 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				BE8F87272E326FAE000045E8 /* UIView +.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
 		BE1AE0642E2E8540002F3170 /* StartGameView */ = {
 			isa = PBXGroup;
 			children = (
@@ -246,13 +247,6 @@
 				BE1AE05F2E2E7FA0002F3170 /* HomeViewController.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		BE1AE0682E2E86E0002F3170 /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Presenter;
 			sourceTree = "<group>";
 		};
 		BE1AE0692E2E8701002F3170 /* PreviewView */ = {
@@ -294,6 +288,7 @@
 			children = (
 				BE1AE0722E2E912D002F3170 /* Question.swift */,
 				BE1AE0742E2E91CD002F3170 /* Question+Mock.swift */,
+				489CA4912E336AF80040538B /* User.swift */,
 				BE8F87292E326FC9000045E8 /* QuestionRang.swift */,
 			);
 			path = Model;
@@ -346,10 +341,15 @@
 			);
 			dependencies = (
 			);
+			fileSystemSynchronizedGroups = (
+				482625042E320C4E00320AAE /* RulesView */,
+				4851C9DC2E33BA4E00469846 /* Services */,
+				48708AC12E2EB936003B95DC /* GaveOverView */,
+				48708AC22E2EB97F003B95DC /* Helpers */,
+			);
 			name = Millionaire;
 			packageProductDependencies = (
 				BE8F87232E324BEF000045E8 /* SnapKit */,
-				BE8F87252E324BEF000045E8 /* SnapKit-Dynamic */,
 			);
 			productName = Millionaire;
 			productReference = BE1AE02D2E2E7A49002F3170 /* Millionaire.app */;
@@ -415,6 +415,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				489CA4922E336AF80040538B /* User.swift in Sources */,
 				6E523F9D2E3024D300F90393 /* TimerView.swift in Sources */,
 				BE1AE04E2E2E7E95002F3170 /* SoundManager.swift in Sources */,
 				BE8F87472E328054000045E8 /* RulesPresenter.swift in Sources */,
@@ -439,7 +440,6 @@
 				BE8F87362E32701E000045E8 /* GameListViewController.swift in Sources */,
 				BE8F87302E32700E000045E8 /* GameOverAlertView.swift in Sources */,
 				BE8F873E2E327068000045E8 /* RulesModuleBuilder.swift in Sources */,
-				BE8F87452E328014000045E8 /* UIView +.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -671,11 +671,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BE8F87222E324BEF000045E8 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
-		};
-		BE8F87252E324BEF000045E8 /* SnapKit-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = BE8F87222E324BEF000045E8 /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = "SnapKit-Dynamic";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

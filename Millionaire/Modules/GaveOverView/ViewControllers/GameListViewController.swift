@@ -20,6 +20,10 @@ enum GameListType {
     }
 }
 
+protocol GameListViewProtocol: AnyObject {
+    func showZeroAlert()
+}
+
 final class GameListViewController: UIViewController {
     
     private enum Drawing {
@@ -84,6 +88,7 @@ final class GameListViewController: UIViewController {
     
     // MARK: - Dependencies
     var presenter: GameListPresenterProtocol!
+    private let userDefaultsManager: UserDefaultsManager
     
     // MARK: - Private Properties
     private let gameType: GameListType
@@ -91,6 +96,8 @@ final class GameListViewController: UIViewController {
     // MARK: - Initializers
     init(gameType: GameListType) {
         self.gameType = gameType
+        userDefaultsManager = UserDefaultsManager.shared
+        print("init: \(gameType)")
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -107,14 +114,9 @@ final class GameListViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if gameType.index == -1 {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                self.alertView.startAnimation()
-                UIView.animate(withDuration: 0.3) { [weak self] in
-                    self?.darkView.alpha = 1
-                    self?.navigationItem.leftBarButtonItem?.isEnabled = false
-                }
-            }
+        presenter.changeUI(for: gameType.index)
+        if case .win = gameType {
+            nextQuestion()
         }
     }
     
@@ -187,6 +189,19 @@ final class GameListViewController: UIViewController {
         let height = ceil(width / Drawing.cellWidthToHeightRation)
         return height
     }
+    
+    private func nextQuestion() {
+        guard let user = userDefaultsManager.getUser() else { return }
+        print("user: \(user)")
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [weak self] in
+            let factory = GameViewControllerFactoryImpl()
+            self?.navigationController?.pushViewController(
+                factory.createGameViewController(question: user.currentLevel, sum: user.getSum()),
+                animated: false
+            )
+        }
+    }
 }
 
 // MARK: - UITableViewDataSource
@@ -209,8 +224,21 @@ extension GameListViewController: UITableViewDataSource {
         ) as? QuestionTableViewCell else { return UITableViewCell() }
         
         let question = presenter.questions[indexPath.row]
-        let index = (presenter.questions.count - 1) - gameType.index
-        cell.configure(with: question, isCurrent: index == indexPath.row)
+        let animationIndex  = presenter.getAnimationIndex(for: gameType)
+        cell.configure(with: question, isCurrent: animationIndex == indexPath.row)
         return cell
+    }
+}
+
+// MARK: - GameListViewProtocol
+extension GameListViewController: GameListViewProtocol {
+    func showZeroAlert() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            self.alertView.startAnimation()
+            UIView.animate(withDuration: 0.3) { [weak self] in
+                self?.darkView.alpha = 1
+                self?.navigationItem.leftBarButtonItem?.isEnabled = false
+            }
+        }
     }
 }
