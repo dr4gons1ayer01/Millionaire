@@ -16,14 +16,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(windowScene: windowScene)
         
-        //        let navVC = UINavigationController(rootViewController: HomeViewController())
-        // TODO: - Delete when create MR
-        let gameVC = GameListViewController(gameType: .loose(index: 3))
-        let presenter = GameListPresenter(view: gameVC)
-        gameVC.presenter = presenter
+        // STUB
+        let factory = GameViewControllerFactoryImpl()
+        let navVC = UINavigationController(rootViewController: .init())
+        navVC.pushViewController(factory.createGameViewController(), animated: false)
         
-        let navVC = UINavigationController(rootViewController: gameVC)
-//        let navVC = UINavigationController(rootViewController: HomeViewController())
         window?.rootViewController = navVC
         window?.makeKeyAndVisible()
     }
