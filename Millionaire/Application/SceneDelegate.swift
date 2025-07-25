@@ -10,6 +10,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    private let userDefaultsManager = UserDefaultsManager.shared
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
@@ -18,7 +19,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         
         // STUB
-        let user = User(gameState: .isOn)
+        if userDefaultsManager.getUser() == nil {
+            userDefaultsManager.createUser()
+        }
+        guard let user = userDefaultsManager.getUser() else { return }
         
         let factory = GameViewControllerFactoryImpl()
         let navVC = UINavigationController(rootViewController: .init())

@@ -51,10 +51,6 @@ final class GameView: UIView {
         v.axis = .vertical
         v.distribution = .fillEqually
         v.spacing = 16
-//        v.addArrangedSubview(AnswerRow(index: "A:", text: "question 1"))
-//        v.addArrangedSubview(AnswerRow(index: "B:", text: "question 2"))
-//        v.addArrangedSubview(AnswerRow(index: "C:", text: "question 3"))
-//        v.addArrangedSubview(AnswerRow(index: "D:", text: "question 4"))
         
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(didChooseAnswer))

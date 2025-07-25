@@ -21,8 +21,13 @@ final class GameViewController: UIViewController, GameViewProtocol {
     var currentlevel = 0
     var timerValue = 30
     
+    private let userDefaultsManager = UserDefaultsManager.shared
+    
     func didSelectAnswer(index: Int, row: AnswerRow) {
+        guard var user = userDefaultsManager.getUser() else { return }
+        let gameList: GameListViewController
         let isCorrect = currentQuestion.correctAnswerIndex == index
+        
         // start music
         if isCorrect {
             row.configure(for: .rightGreen)
@@ -31,12 +36,24 @@ final class GameViewController: UIViewController, GameViewProtocol {
             SoundManager.shared.stopSound()
             SoundManager.shared.playSound(.correct)
             // make asnwerRowGreen
+            gameList = GameListViewController(gameType: .win(index: user.currentLevel))
+            user.updateLevel()
         } else {
             row.configure(for: .wrong)
             
             timerService.stop()
             SoundManager.shared.stopSound()
             SoundManager.shared.playSound(.wrong)
+            gameList = GameListViewController(gameType: .loose(index: user.currentLevel))
+            user.gameOver()
+        }
+        userDefaultsManager.saveUser(user)
+        
+        let presenter = GameListPresenter(view: gameList)
+        gameList.presenter = presenter
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
+            self?.navigationController?.pushViewController(gameList, animated: true)
         }
     }
     

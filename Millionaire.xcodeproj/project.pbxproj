@@ -86,6 +86,7 @@
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		482625042E320C4E00320AAE /* RulesView */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = RulesView; sourceTree = "<group>"; };
+		4851C9DC2E33BA4E00469846 /* Services */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Services; sourceTree = "<group>"; };
 		48708AC12E2EB936003B95DC /* GaveOverView */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = GaveOverView; sourceTree = "<group>"; };
 		48708AC22E2EB97F003B95DC /* Helpers */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Helpers; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -152,6 +153,7 @@
 				BE1AE0452E2E7E95002F3170 /* Sounds */,
 				BE1AE0542E2E7EB0002F3170 /* Application */,
 				BE1AE0442E2E7E67002F3170 /* Resources */,
+				4851C9DC2E33BA4E00469846 /* Services */,
 			);
 			path = Millionaire;
 			sourceTree = "<group>";
@@ -341,6 +343,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				482625042E320C4E00320AAE /* RulesView */,
+				4851C9DC2E33BA4E00469846 /* Services */,
 				48708AC12E2EB936003B95DC /* GaveOverView */,
 				48708AC22E2EB97F003B95DC /* Helpers */,
 			);

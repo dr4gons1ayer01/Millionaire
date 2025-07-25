@@ -23,7 +23,7 @@ final class GameViewControllerFactoryImpl {
         sv.axis = .vertical
         sv.alignment = .center
         let questionlbl = UILabel()
-        questionlbl.text = "QUESTION #\(question)"
+        questionlbl.text = "QUESTION #\(question + 1)"
         questionlbl.alpha = 0.5
         questionlbl.font = .init(name: FontType.regular.rawValue, size: 18)
         
